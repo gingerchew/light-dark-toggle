@@ -18,5 +18,8 @@
         <light-dark-toggle></light-dark-toggle>
         <p>Instant dark mode support using <code>&lt;meta name="color-scheme" content="dark" /></code></p>
     </main>
+    <script type="module">
+        import('./index.min.js').then(({ LightDarkToggle }) => LightDarkToggle.define());
+    </script>
 </body>
 </html>
