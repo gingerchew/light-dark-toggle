@@ -22,6 +22,10 @@
         <light-dark-toggle></light-dark-toggle>
         <p>Instant dark mode support using <code>&lt;meta name="color-scheme" content="dark" /></code></p>
         <a href="https://github.com/gingerchew/light-dark-toggle">Github</a>
+        <details>
+            <summary>CSS Tips</summary>
+            <p><b>Did you know?</b> Using the CSS function <code>light-dark()</code> you can tell the browser which colors to pick from when using the users prefered <code>color-scheme</code>.</p>
+        </details>
     </main>
     <script type="module">
         import('./index.min.js').then(({ LightDarkToggle }) => LightDarkToggle.define());
