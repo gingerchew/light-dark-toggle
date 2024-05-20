@@ -1,15 +1,15 @@
 {
   "name": "light-dark-toggle",
-  "version": "1.0.0",
+  "version": "0.6.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.min.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build":"node scripts/index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["web components","custom elements","dark mode"],
+  "author": "gingerchew",
   "license": "MIT",
   "devDependencies": {
     "esbuild": "^0.21.3"

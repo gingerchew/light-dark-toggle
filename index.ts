@@ -1,28 +1,38 @@
+let instances = new Set<LightDarkToggle>(),
+    d = document,
+    meta = d.querySelector<HTMLMetaElement>('[name="color-scheme"]') ?? 
+    d.head.insertAdjacentElement(
+        'beforeend', 
+        Object.assign(d.createElement('meta'), { name: 'color-scheme', content: matchMedia('(prefers-color-scheme: dark)') ? 'dark' : 'light' }
+    )
+) as HTMLMetaElement,
+    render = () => requestAnimationFrame(() => instances.forEach(i => i._render()))
+
 export class LightDarkToggle extends HTMLElement {
-    _mode:'dark'|'light' = matchMedia('(prefers-color-scheme: dark)') ? 'dark' : 'light';
-    constructor() { super() }
+    constructor() {super()}
 
     static define(name = 'light-dark-toggle') {
-        window.customElements.define(name, this);
+        window.customElements.define(name, this)
     }
 
     _render() {
-        requestAnimationFrame(() => 
-            this.innerHTML = `<button>${this._mode}</button><meta name="color-scheme" content="${this._mode}" />`
-        )
+		this.innerHTML = `<button>${meta.content}</button>`
     }
-
-    _toggle = () => {
-        this._mode = this._mode === 'dark' ? 'light' : 'dark';
-        this._render();
+    
+	_toggle = () => {
+        meta.content = meta.content === 'dark' ? 'light' : 'dark'
+		
+        render()
     }
 
     connectedCallback() {
-        this.addEventListener('click', this._toggle);
-        this._render();
+        this.addEventListener('click', this._toggle, true);
+        instances.add(this)
+		this._render()
     }
 
     disconnectedCallback() {
-        this.removeEventListener('click', this._toggle);
+		this.removeEventListener('click', this._toggle, true)
+		instances.delete(this)
     }
 }
