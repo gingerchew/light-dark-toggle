@@ -21,3 +21,5 @@ When the toggle renders in your HTML, using `<light-dark-toggle>` it renders a b
 - [x] Detect and handle multiple instances
 - [ ] Accept a toggle in the light dom instead of overriding the `innerHTML` of the `light-dark-toggle` element.
 - [ ] Reflect preference in localstorage
+- [ ] Tests?
+- [ ] Performance?
