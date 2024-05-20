@@ -9,6 +9,10 @@
             display: grid;
             place-content: center;
         }
+        div {
+            display: flex;
+            gap: 2ch;
+        }
     </style>
     <meta name="color-scheme" content="dark" />
 </head>
@@ -17,6 +21,7 @@
         <h1><code>&lt;light-dark-toggle></code> Web Component</h1>
         <light-dark-toggle></light-dark-toggle>
         <p>Instant dark mode support using <code>&lt;meta name="color-scheme" content="dark" /></code></p>
+        <a href="https://github.com/gingerchew/light-dark-toggle">Github</a>
     </main>
     <script type="module">
         import('./index.min.js').then(({ LightDarkToggle }) => LightDarkToggle.define());
