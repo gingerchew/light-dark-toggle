@@ -13,6 +13,18 @@
             background-color: var(--paper);
             color: var(--ink);
         }
+        @supports not (color: light-dark(#fff, #000)) {
+            :root {
+                --paper: #efedff;
+                --ink: #121314;
+            }
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --paper: #121314;
+                    --ink: #efedff;
+                }
+            }
+        }
         body,
         html {
             min-height: 100dvh;
