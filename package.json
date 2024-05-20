@@ -8,6 +8,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build":"node scripts/index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gingerchew/light-dark-toggle.git"
+  },
   "keywords": ["web components","custom elements","dark mode"],
   "author": "gingerchew",
   "license": "MIT",
