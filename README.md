@@ -17,6 +17,7 @@ When the toggle renders in your HTML, using `<light-dark-toggle>` it renders a b
 
 ## TODO
 
-- Use a `<meta name="color-scheme">` in the `<head>` as the source of truth if it exists.
-- Detect and handle multiple instances
+- [x] Use a `<meta name="color-scheme">` in the `<head>` as the source of truth if it exists.
+- [x] Detect and handle multiple instances
 - Accept a toggle in the light dom instead of overriding the `innerHTML` of the `light-dark-toggle` element.
+- Reflect preference in localstorage
