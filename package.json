@@ -1,6 +1,6 @@
 {
   "name": "light-dark-toggle",
-  "version": "0.8.1",
+  "version": "1.0.0",
   "description": "A custom element for toggling dark mode",
   "homepage": "https://gingerchew.github.io/light-dark-toggle/",
   "main": "index.min.js",
