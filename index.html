@@ -17,11 +17,9 @@
             --paper: #efedff;
             --ink: #121314;
         }
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --paper: #121314;
-                --ink: #efedff;
-            }
+        :root:has([name="color-scheme"][content="dark"]) {
+            --paper: #121314;
+            --ink: #efedff;
         }
         body,
         html {
