@@ -1,15 +1,19 @@
 let instances = new Set<LightDarkToggle>(),
+    getPreference = () => localStorage['ldt:prefers'] ?? matchMedia(`(prefers-color-scheme: dark)`).matches ? 'dark' : 'light',
     d = document,
-    meta = d.querySelector<HTMLMetaElement>('[name="color-scheme"]') ?? 
+    meta = d.querySelector<HTMLMetaElement>(`[name="color-scheme"]`) ?? 
     d.head.insertAdjacentElement(
         'beforeend', 
-        Object.assign(d.createElement('meta'), { name: 'color-scheme', content: matchMedia('(prefers-color-scheme: dark)') ? 'dark' : 'light' }
+        Object.assign(d.createElement('meta'), { name: 'color-scheme', content: getPreference() }
     )
 ) as HTMLMetaElement,
-    render = () => requestAnimationFrame(() => instances.forEach(i => i._render()))
-
+    render = () => requestAnimationFrame(() => instances.forEach(i => i._render())),
+    reflect = false;
 export class LightDarkToggle extends HTMLElement {
-    constructor() {super()}
+    constructor() {
+        super();
+        reflect ||= this.getAttribute('reflect') === 'local'
+    }
 
     static define(name = 'light-dark-toggle') {
         window.customElements.define(name, this)
@@ -21,7 +25,7 @@ export class LightDarkToggle extends HTMLElement {
     
 	_toggle = () => {
         meta.content = meta.content === 'dark' ? 'light' : 'dark'
-		
+		reflect && (localStorage['ldt:prefers'] = meta.content);
         render()
     }
 
