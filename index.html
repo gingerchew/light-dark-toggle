@@ -73,6 +73,10 @@
         button:active {
             opacity: 0.75;
         }
+        div {
+            display: flex;
+            gap: 2ch;
+        }
     </style>
     <meta name="color-scheme" content="dark" />
 </head>
@@ -81,7 +85,7 @@
         <h1><code>&lt;light-dark-toggle></code> Web Component</h1>
         <light-dark-toggle reflect="local"></light-dark-toggle>
         <p>Instant dark mode support using <code>&lt;meta name="color-scheme" content="dark" /></code> with support for <code>localStorage</code></p>
-        <a href="https://github.com/gingerchew/light-dark-toggle">Github</a>
+        <div><a href="https://github.com/gingerchew/light-dark-toggle">Github</a> <a href="https://codepen.io/gingerchew/pen/pomyEyN?editors=1000">CodePen</a></div>
         <details>
             <summary>CSS Tips</summary>
             <p><b>Did you know?</b> Using the CSS function <code>light-dark()</code> you can tell the browser which colors to pick from when using the users prefered <code>color-scheme</code>.</p>
