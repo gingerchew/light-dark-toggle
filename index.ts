@@ -7,7 +7,9 @@ let instances = new Set<LightDarkToggle>(),
             'beforeend', 
             Object.assign(d.createElement('meta'), { name: 'color-scheme', content: getPreference() })
         ) as HTMLMetaElement
-        m.content !== ls.ldt && ls.ldt && (m.content = ls.ldt);
+        if (typeof ls.ldt !== 'undefined' && ls.ldt !== m.content) {
+            m.content = ls.ldt;
+        }
         return m;
     })(d.querySelector<HTMLMetaElement>(`[name="color-scheme"]`)),
     render = () => requestAnimationFrame(() => instances.forEach(i => i._render())),
