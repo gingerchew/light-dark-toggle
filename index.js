@@ -3,7 +3,9 @@ let instances = /* @__PURE__ */ new Set(), ls = localStorage, getPreference = ()
     "beforeend",
     Object.assign(d.createElement("meta"), { name: "color-scheme", content: getPreference() })
   );
-  m.content !== ls.ldt && (m.content = ls.ldt);
+  if (typeof ls.ldt !== "undefined" && ls.ldt !== m.content) {
+    m.content = ls.ldt;
+  }
   return m;
 })(d.querySelector(`[name="color-scheme"]`)), render = () => requestAnimationFrame(() => instances.forEach((i) => i._render())), reflect = false;
 class LightDarkToggle extends HTMLElement {
